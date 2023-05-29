@@ -1,0 +1,113 @@
+<div class="bg-img">
+  <div class="example-container">
+    <div class="form-container">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Registration Page</mat-card-title>
+        </mat-card-header>
+        <mat-card-content fxLayout="row">
+          <form [formGroup]="adminRegForm" (ngSubmit)="onSubmit()">
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label> User Name </mat-label>
+              <input
+                matInput
+                formControlName="userName"
+                placeholder="User Name"
+                required
+              />
+              <mat-error
+                *ngIf="adminRegForm.get('userName')?.hasError('required')"
+              >
+                Name cannot be empty
+              </mat-error>
+              <mat-error
+                *ngIf="adminRegForm.get('userName')?.hasError('minlength')"
+              >
+                Name Must be at least 4 Characters
+              </mat-error>
+              <mat-error
+                *ngIf="adminRegForm.get('userName')?.hasError('maxlength')"
+              >
+                Name Should not Exceed 20 Characters
+              </mat-error>
+              <mat-error
+                *ngIf="adminRegForm.get('userName')?.hasError('pattern')"
+              >
+                Invalid Name
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label> Email Id </mat-label>
+              <input
+                matInput
+                formControlName="emailId"
+                placeholder="Email Id"
+                required
+              />
+              <mat-error
+                *ngIf="adminRegForm.get('emailId')?.hasError('required')"
+              >
+                Email Id cannot be empty
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label> Password </mat-label>
+              <input
+                matInput
+                formControlName="password"
+                type="password"
+                placeholder="Password"
+                required
+              />
+              <mat-error
+                *ngIf="adminRegForm.get('password')?.hasError('required')"
+              >
+                Password cannot be empty
+              </mat-error>
+              <mat-error
+                *ngIf="adminRegForm.get('password')?.hasError('minlength')"
+              >
+                Password Must be at least 6 Characters
+              </mat-error>
+              <mat-error
+                *ngIf="adminRegForm.get('password')?.hasError('maxlength')"
+              >
+                Password Should not Exceed 15 Characters</mat-error
+              >
+            </mat-form-field>
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label> Mobile Number </mat-label>
+              <input
+                matInput
+                formControlName="contactNo"
+                placeholder="Mobile NO."
+                required
+              />
+              <mat-error
+                *ngIf="adminRegForm.get('contactNo')?.hasError('required')"
+              >
+                Contact Number cannot be empty
+              </mat-error>
+              <mat-error
+                *ngIf="adminRegForm.get('contactNo')?.hasError('pattern')"
+              >
+                Invalid Contact Number
+              </mat-error>
+            </mat-form-field>
+            <button
+              mat-raised-button
+              class="button"
+              [disabled]="!adminRegForm.valid"
+              (click)="adminReg()"
+            >
+              Register
+            </button>
+            <button mat-raised-button class="btn" (click)="cancel()">
+              Cancel
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

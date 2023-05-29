@@ -1,0 +1,118 @@
+<div class="bg-img">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <div class="header-logo">
+        <img class="branding" src="../../assets/movLogo.png" alt="header" />
+      </div>
+      <button id="cancel" (click)="cancel()">Cancel</button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="example-container">
+    <div class="form-container">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Registration Page</mat-card-title>
+        </mat-card-header>
+        <mat-card-content fxLayout="row">
+          <form [formGroup]="userRegisterForm" (ngSubmit)="onSubmit()">
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label> Name </mat-label>
+              <input
+                matInput
+                formControlName="name"
+                placeholder="Name"
+                required
+              />
+              <mat-error
+                *ngIf="userRegisterForm.get('name')?.hasError('required')"
+              >
+                Name cannot be empty
+              </mat-error>
+              <mat-error
+                *ngIf="userRegisterForm.get('name')?.hasError('minlength')"
+              >
+                Name Must be at least 4 Characters
+              </mat-error>
+              <mat-error
+                *ngIf="userRegisterForm.get('name')?.hasError('maxlength')"
+              >
+                Name Should not Exceed 20 Characters
+              </mat-error>
+              <mat-error
+                *ngIf="userRegisterForm.get('name')?.hasError('pattern')"
+              >
+                Invalid Name
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label> Email Id </mat-label>
+              <input
+                matInput
+                formControlName="email"
+                placeholder="Email Id"
+                required
+              />
+              <mat-error
+                *ngIf="userRegisterForm.get('email')?.hasError('required')"
+              >
+                Email Id cannot be empty
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label> Password </mat-label>
+              <input
+                matInput
+                formControlName="password"
+                type="password"
+                placeholder="Password"
+                required
+              />
+              <mat-error
+                *ngIf="userRegisterForm.get('password')?.hasError('required')"
+              >
+                Password cannot be empty
+              </mat-error>
+              <mat-error
+                *ngIf="userRegisterForm.get('password')?.hasError('minlength')"
+              >
+                Password Must be at least 6 Characters
+              </mat-error>
+              <mat-error
+                *ngIf="userRegisterForm.get('password')?.hasError('maxlength')"
+              >
+                Password Should not Exceed 15 Characters</mat-error
+              >
+            </mat-form-field>
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label> Mobile Number </mat-label>
+              <input
+                matInput
+                formControlName="contactNo"
+                placeholder="Mobile NO."
+                required
+              />
+              <mat-error
+                *ngIf="userRegisterForm.get('contactNo')?.hasError('required')"
+              >
+                Contact Number cannot be empty
+              </mat-error>
+              <mat-error
+                *ngIf="userRegisterForm.get('contactNo')?.hasError('pattern')"
+              >
+                Invalid Contact Number
+              </mat-error>
+            </mat-form-field>
+            <button
+              mat-raised-button
+              class="button"
+              [disabled]="!userRegisterForm.valid"
+              (click)="register()"
+            >
+              Register
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

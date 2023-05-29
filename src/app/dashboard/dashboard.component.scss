@@ -1,0 +1,48 @@
+.bg-img {
+  background-image: url("../../assets/cinemaPoster.png");
+  min-height: 100%;
+  height: 700px;
+  background-size: cover;
+}
+
+.header-text {
+  margin: 5px;
+}
+
+a {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 16px;
+  right: -100px;
+  margin: 10px 20px;
+}
+
+a:hover {
+  color: #f08080;
+}
+
+.activebutton {
+  background-color: rgb(51, 51, 51);
+  color: white;
+}
+
+.branding {
+  width: 140px;
+}
+
+.right a {
+  margin: 0px 800px;
+  text-decoration: none;
+}
+
+#logout {
+  cursor: pointer;
+  background: no-repeat;
+  float: right;
+  border: none;
+  color: #00000099;
+  position: absolute;
+  right: 20px;
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}

@@ -1,0 +1,224 @@
+<div class="bg-img">
+  <div class="example-container">
+    <div class="form-container">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Update Movie</mat-card-title>
+        </mat-card-header>
+        <mat-card-content fxLayout="row">
+          <form [formGroup]="updateMovieForm">
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label> Movie Name </mat-label>
+              <input
+                matInput
+                formControlName="mname"
+                placeholder="Enter Movie Name"
+                required
+              />
+              <mat-error
+                *ngIf="updateMovieForm.get('mname')?.hasError('required')"
+              >
+                Movie Name is required
+              </mat-error>
+              <mat-error
+                *ngIf="updateMovieForm.get('mname')?.hasError('maxlength')"
+              >
+                Movie Name should not exceed 25 characters
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="form-fieldarea" appearance="outline">
+              <mat-label>Movie Cast</mat-label>
+              <textarea
+                matInput
+                rows="5"
+                cols="40"
+                formControlName="cast"
+                placeholder="Enter the movie cast"
+                required
+              ></textarea>
+              <mat-error
+                *ngIf="updateMovieForm.get('cast')?.hasError('required')"
+              >
+                Movie Cast is required
+              </mat-error>
+              <mat-error
+                *ngIf="updateMovieForm.get('cast')?.hasError('minlength')"
+              >
+                min 10 characters required</mat-error
+              >
+            </mat-form-field>
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label> Directed By </mat-label>
+              <input
+                matInput
+                formControlName="director"
+                placeholder="Enter Movie Director Name"
+                required
+              />
+              <mat-error
+                *ngIf="updateMovieForm.get('director')?.hasError('required')"
+              >
+                Director Name is required
+              </mat-error>
+              <mat-error
+                *ngIf="updateMovieForm.get('director')?.hasError('minlength')"
+              >
+                name should be minimum of 3 characters
+              </mat-error>
+              <mat-error
+                *ngIf="updateMovieForm.get('director')?.hasError('maxlength')"
+              >
+                name should not exceed 20 characters
+              </mat-error>
+              <mat-error
+                *ngIf="updateMovieForm.get('director')?.hasError('pattern')"
+              >
+                Invalid name for this field
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>Movie Genre</mat-label>
+              <mat-select
+                formControlName="mgenre"
+                placeholder="Select an Movie Genre"
+                required
+              >
+                <mat-option [value]="genre" *ngFor="let genre of genres">{{
+                  genre
+                }}</mat-option>
+              </mat-select>
+              <mat-error
+                *ngIf="updateMovieForm.get('mgenre')?.hasError('required')"
+              >
+                Movie Genre is required
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="form-fieldarea" appearance="outline">
+              <mat-label>Movie Description</mat-label>
+              <textarea
+                matInput
+                rows="5"
+                cols="40"
+                formControlName="mdesc"
+                placeholder="Enter Movie Synopsis"
+                required
+              ></textarea>
+              <mat-error
+                *ngIf="updateMovieForm.get('mdesc')?.hasError('required')"
+              >
+                Movie description is required
+              </mat-error>
+              <mat-error
+                *ngIf="updateMovieForm.get('mdesc')?.hasError('minlength')"
+              >
+                Synopsis should be min 10 characters</mat-error
+              >
+            </mat-form-field>
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label> Language </mat-label>
+              <input
+                matInput
+                formControlName="language"
+                placeholder="Enter Movie Language"
+                required
+              />
+              <mat-error
+                *ngIf="updateMovieForm.get('language')?.hasError('required')"
+              >
+                Movie Language is required
+              </mat-error>
+              <mat-error
+                *ngIf="updateMovieForm.get('language')?.hasError('minlength')"
+              >
+                Language should be minimum of 3 characters
+              </mat-error>
+              <mat-error
+                *ngIf="updateMovieForm.get('language')?.hasError('maxlength')"
+              >
+                Language should not exceed 20 characters
+              </mat-error>
+              <mat-error
+                *ngIf="updateMovieForm.get('language')?.hasError('pattern')"
+              >
+                Invalid Movie Language
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>Movie Runtime</mat-label>
+              <input
+                matInput
+                formControlName="runTime"
+                placeholder="Enter Movie Runtime"
+                required
+              />
+              <mat-error
+                *ngIf="updateMovieForm.get('runTime')?.hasError('required')"
+              >
+                Run time of movie cannot be empty
+              </mat-error>
+              <mat-error
+                *ngIf="updateMovieForm.get('runTime')?.hasError('pattern')"
+              >
+                Invalid Run time
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>Ticket Price</mat-label>
+              <input
+                matInput
+                formControlName="ticketPrice"
+                placeholder="Enter Movie Ticket Price"
+                required
+              />
+              <mat-error
+                *ngIf="updateMovieForm.get('ticketPrice')?.hasError('required')"
+              >
+                Ticket price cannot be empty
+              </mat-error>
+              <mat-error
+                *ngIf="updateMovieForm.get('ticketPrice')?.hasError('pattern')"
+              >
+                Invalid ticket price
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>Ticket Confirmation Code</mat-label>
+              <input
+                matInput
+                formControlName="movieCode"
+                placeholder="Enter Movie Ticket Confirmation Code"
+                required
+              />
+              <mat-error
+                *ngIf="updateMovieForm.get('MovieCode')?.hasError('required')"
+              >
+                Movie confirmation code is required
+              </mat-error>
+              <mat-error
+                *ngIf="updateMovieForm.get('MovieCode')?.hasError('minlength')"
+              >
+                Movie confirmation code should be minimum of 4 Characters
+              </mat-error>
+              <mat-error
+                *ngIf="updateMovieForm.get('MovieCode')?.hasError('maxlength')"
+              >
+                Movie confirmation code should not exceed 25 characters
+              </mat-error>
+            </mat-form-field>
+            <button
+              mat-raised-button
+              class="button"
+              [disabled]="!updateMovieForm.valid"
+              (click)="updateMovie()"
+            >
+              Update
+            </button>
+            <button mat-raised-button class="btn" (click)="cancel()">
+              Cancel
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

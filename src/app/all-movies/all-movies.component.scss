@@ -1,0 +1,57 @@
+.search-bar {
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 100%;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.main-div {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+}
+
+.imgs {
+  width: 500px;
+  height: 300px;
+}
+
+.bg-img {
+  background-image: url("../../assets/moviePoster.jpg");
+  min-height: 100%;
+  height: auto;
+  background-size: cover;
+}
+.tp-card {
+  margin-left: 600px;
+  margin-top: 50px;
+}
+
+mat-card-header {
+  color: #ffffff;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.button {
+  background: #2d47db;
+  text-transform: uppercase !important;
+}
+
+.btn {
+  background: #e59010;
+  right: -100px !important;
+  text-transform: uppercase !important;
+}
+
+.delete {
+  background: #9f0931;
+  right: -200px !important;
+  text-transform: uppercase !important;
+}

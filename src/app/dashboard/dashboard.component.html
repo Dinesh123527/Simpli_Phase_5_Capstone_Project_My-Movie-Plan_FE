@@ -1,0 +1,53 @@
+<div class="bg-img">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <div class="header-logo">
+        <img class="branding" src="../../assets/movLogo.png" alt="header" />
+      </div>
+      <div>
+        <a
+          mat-button
+          [routerLink]="'/home'"
+          [routerLinkActive]="'activebutton'"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          Home
+        </a>
+        <a
+          *ngIf="roleAdmin === 'Admin'"
+          mat-button
+          [routerLink]="'/home/admin-reg'"
+          routerLinkActive="active"
+          [routerLinkActive]="'activebutton'"
+        >
+          Admin Registration
+        </a>
+        <a
+          mat-button
+          [routerLink]="'/home/movies'"
+          routerLinkActive="active"
+          [routerLinkActive]="'activebutton'"
+        >
+          Movies
+        </a>
+        <a
+          *ngIf="roleAdmin === 'Admin'"
+          mat-button
+          [routerLink]="'/home/add-movie'"
+          routerLinkActive="active"
+          [routerLinkActive]="'activebutton'"
+        >
+          Add Movie
+        </a>
+        <button id="logout">
+          <img
+            src="../../assets/signOut.png"
+            (click)="onSignOut()"
+            alt="logout"
+          />
+        </button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</div>

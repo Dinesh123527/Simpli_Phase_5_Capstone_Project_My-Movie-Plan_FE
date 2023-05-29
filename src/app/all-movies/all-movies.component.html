@@ -1,0 +1,50 @@
+<div class="bg-img">
+  <div class="search-bar">
+    <mat-card id="card">
+      <mat-card-content>
+        <input
+          type="text"
+          placeholder="Search with Name..."
+          [(ngModel)]="query"
+        />
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div
+    class="main-div"
+    *ngFor="let mov of movies | filterMovie : query : 'mname'"
+  >
+    <mat-card class="tp-card">
+      <mat-card-header class="text">
+        <mat-card-title>{{ mov.mname }}</mat-card-title> </mat-card-header
+      ><img
+        mat-card-image
+        *ngFor="let image of img"
+        class="imgs"
+        src="{{ image.imagePath }}"
+        alt="Photo of movie"
+      />
+      <mat-card-actions>
+        <button mat-raised-button class="button" (click)="viewMovie(mov.mid)">
+          View
+        </button>
+        <button
+          mat-raised-button
+          *ngIf="roleAdmin === 'Admin'"
+          class="btn"
+          (click)="updateMovie(mov.mid)"
+        >
+          Update
+        </button>
+        <button
+          mat-raised-button
+          *ngIf="roleAdmin === 'Admin'"
+          class="delete"
+          (click)="deleteMovie(mov.mid)"
+        >
+          Delete
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

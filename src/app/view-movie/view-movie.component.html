@@ -1,0 +1,83 @@
+<div class="bg-img">
+  <div class="main-div">
+    <mat-card class="tp-card">
+      <img
+        mat-card-image
+        class="imgs"
+        src="../../assets/cine.png"
+        alt="Photo of a movie"
+      />
+      <mat-card-header class="text">
+        <mat-card-title
+          style="
+            font-size: 30px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 30px;
+          "
+          >{{ currentMovie.mname }}</mat-card-title
+        >
+      </mat-card-header>
+      <mat-card-content>
+        <span style="font-size: 20px; font-weight: bold; color: #ffa07a"
+          >Cast: {{ currentMovie.cast }}</span
+        ><br />
+        <span style="font-size: 20px; font-weight: bold; color: #ffa07a"
+          >Directed by: {{ currentMovie.director }}</span
+        ><br />
+        <span style="font-size: 20px; font-weight: bold; color: #ffa07a">
+          Genre: {{ currentMovie.mgenre }}</span
+        ><br />
+        <span style="font-size: 20px; font-weight: bold; color: #f08080"
+          >Synopsis:</span
+        ><br />
+        <span
+          class="angular-with-newlines"
+          style="font-size: 14px; color: #9fe2bf"
+          >{{ currentMovie.mdesc }}</span
+        ><br />
+        <span style="font-size: 20px; font-weight: bold; color: #ffa07a">
+          Language: {{ currentMovie.language }}</span
+        ><br />
+        <span style="font-size: 18px; font-weight: bold; color: #40e0d0"
+          >Run Time: {{ currentMovie.runTime }} <span>Min</span></span
+        ><br />
+        <span style="font-size: 18px; font-weight: bold; color: #40e0d0"
+          >Ticket Price: <span>Rs.</span>{{ currentMovie.ticketPrice }}</span
+        ><br />
+        <span style="font-size: 18px; font-weight: bold; color: #00ffff"
+          >Confirmation Code: {{ currentMovie.movieCode }}</span
+        ><br /><br />
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          *ngIf="roleAdmin === 'Admin'"
+          mat-raised-button
+          class="button"
+          (click)="updateMovie(currentMovie.mid)"
+        >
+          Update
+        </button>
+        <button
+          *ngIf="roleAdmin === 'Admin'"
+          mat-raised-button
+          class="btn"
+          (click)="deleteMovie(currentMovie.mid)"
+        >
+          Delete
+        </button>
+        <button mat-raised-button class="cncl" (click)="cancel()">
+          Cancel
+        </button>
+        <button
+          *ngIf="roleUsers === 'Users'"
+          mat-raised-button
+          class="purchase"
+          (click)="purchase()"
+        >
+          Buy
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

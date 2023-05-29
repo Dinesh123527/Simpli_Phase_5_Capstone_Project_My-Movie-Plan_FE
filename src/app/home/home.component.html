@@ -1,0 +1,84 @@
+<div class="bg-img">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <div class="header-logo">
+        <img class="branding" src="../../assets/movLogo.png" alt="header" />
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="example-container">
+    <div class="form-container">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Login Form</mat-card-title>
+        </mat-card-header>
+        <mat-card-content fxLayout="row">
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label> Email Id </mat-label>
+              <input
+                matInput
+                formControlName="email"
+                placeholder="Enter Email Id"
+                required
+              />
+              <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+                This Field is required
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label> Password </mat-label>
+              <input
+                matInput
+                formControlName="password"
+                type="password"
+                placeholder="Enter Password"
+                required
+              />
+              <mat-error
+                *ngIf="loginForm.get('password')?.hasError('required')"
+              >
+                This Field is required
+              </mat-error>
+              <mat-error
+                *ngIf="loginForm.get('password')?.hasError('minlength')"
+              >
+                Password Must be at least 6 Characters
+              </mat-error>
+              <mat-error
+                *ngIf="loginForm.get('password')?.hasError('maxlength')"
+              >
+                Password Should not Exceed 15 Characters</mat-error
+              >
+            </mat-form-field>
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>Login As</mat-label>
+              <mat-select formControlName="login" required>
+                <mat-option
+                  (change)="changeRole($event)"
+                  [value]="role"
+                  *ngFor="let role of roles"
+                  >{{ role }}</mat-option
+                >
+              </mat-select>
+              <mat-error *ngIf="loginForm.get('login')?.hasError('required')">
+                This Field is required
+              </mat-error>
+            </mat-form-field>
+            <button
+              mat-raised-button
+              class="button"
+              [disabled]="!loginForm.valid"
+              (click)="logIn()"
+            >
+              Login
+            </button>
+            <button mat-raised-button class="btn" [routerLink]="['/user-reg']">
+              Register
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

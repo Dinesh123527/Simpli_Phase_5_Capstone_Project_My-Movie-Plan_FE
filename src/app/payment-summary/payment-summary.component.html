@@ -1,0 +1,20 @@
+<div class="bg-img">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <div class="header-logo">
+        <img class="branding" src="../../assets/movLogo.png" alt="header" />
+      </div>
+      <button id="cancel" [routerLink]="['/home/movies']">Cancel</button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-card>
+    <mat-card-header class="text">
+      <mat-card-title>Payment</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-raised-button class="pay-btn" (click)="makePayment(25)">
+        Pay with stripe
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
